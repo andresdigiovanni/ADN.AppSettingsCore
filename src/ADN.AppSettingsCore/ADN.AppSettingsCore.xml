@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ADN.AppSettingsCore</name>
+    </assembly>
+    <members>
+        <member name="T:ADN.AppSettingsCore.ServiceCollectionExtensions">
+            <summary>
+            Extensions for Microsoft.Extensions.DependencyInjection.IServiceCollection.
+            </summary>
+        </member>
+        <!-- El comentario XML con formato incorrecto se ha omitido para el miembro "M:ADN.AppSettingsCore.ServiceCollectionExtensions.ConfigureWritable``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfigurationSection,System.String)" -->
+        <member name="T:ADN.AppSettingsCore.WritableOptions`1">
+            <summary>
+            Class of access to a modifiable section of a JSON file.
+            </summary>
+            <typeparam name="T">The type of the element in the configuration section.</typeparam>
+        </member>
+        <!-- El comentario XML con formato incorrecto se ha omitido para el miembro "P:ADN.AppSettingsCore.WritableOptions`1.Value" -->
+        <!-- El comentario XML con formato incorrecto se ha omitido para el miembro "M:ADN.AppSettingsCore.WritableOptions`1.OnChange(System.Action{`0,System.String})" -->
+        <!-- El comentario XML con formato incorrecto se ha omitido para el miembro "M:ADN.AppSettingsCore.WritableOptions`1.Update(System.Action{`0})" -->
+    </members>
+</doc>

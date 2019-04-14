@@ -1,0 +1,8 @@
+language: csharp
+solution: ADN.AppSettingsCore.sln
+dotnet: 2.0.0
+script:
+  - dotnet restore
+  - dotnet build ./src/ADN.AppSettingsCore/
+  - dotnet build ./tests/ADN.AppSettingsCore.Tests/
+  - dotnet test ./tests/ADN.AppSettingsCore.Tests/

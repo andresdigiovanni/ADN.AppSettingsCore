@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <Version>1.0.0</Version>
+    <Title>ADN.AppSettingsCore</Title>
+    <Authors>Andrés Di Giovanni</Authors>
+    <Company>ADN</Company>
+    <Product>ADN.AppSettingsCore</Product>
+    <Description>ADN.AppSettingsCore is a cross-platform open-source library which provides application settings utilities to .NET Core developers</Description>
+    <Copyright>Copyright © Andrés Di Giovanni 2019</Copyright>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageLicenseUrl>https://github.com/andresdigiovanni/ADN.AppSettingsCore/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/andresdigiovanni/ADN.AppSettingsCore</PackageProjectUrl>
+    <PackageTags>Configuration; Settings</PackageTags>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl> 
+    <RepositoryUrl>https://github.com/andresdigiovanni/ADN.AppSettingsCore</RepositoryUrl> 
+    <PackageIconUrl>https://raw.githubusercontent.com/andresdigiovanni/ADN.AppSettingsCore/master/icon.png</PackageIconUrl>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>ADN.AppSettingsCore.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="2.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="Vsxmd" Version="1.4.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>
