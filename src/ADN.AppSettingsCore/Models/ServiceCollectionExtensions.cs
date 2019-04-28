@@ -28,7 +28,7 @@ namespace ADN.AppSettingsCore
         /// var configuration = builder.Build();
         /// 
         /// var services = new ServiceCollection();
-        /// services.ConfigureWritable<Person>(configuration.GetSection("Person"));
+        /// <![CDATA[services.ConfigureWritable<Person>(configuration.GetSection("Person"));]]>
         /// </code>
         /// </example>
         public static void ConfigureWritable<T>(

@@ -4,20 +4,100 @@
         <name>ADN.AppSettingsCore</name>
     </assembly>
     <members>
+        <member name="T:ADN.AppSettingsCore.IWritableOptions`1">
+            <summary>
+            Class of access to a modifiable section of a JSON file.
+            </summary>
+            <typeparam name="T">The type of the element in the configuration section.</typeparam>
+        </member>
+        <member name="M:ADN.AppSettingsCore.IWritableOptions`1.OnChange(System.Action{`0,System.String})">
+            <summary>
+            Registers a listener to be called whenever a named TOptions changes.
+            </summary>
+            <param name="listener">The action to be invoked when TOptions has changed.</param>
+            <returns>An IDisposable which should be disposed to stop listening for changes.</returns>
+        </member>
+        <member name="M:ADN.AppSettingsCore.IWritableOptions`1.Update(System.Action{`0})">
+            <summary>
+            Update the current value of the section.
+            </summary>
+        </member>
         <member name="T:ADN.AppSettingsCore.ServiceCollectionExtensions">
             <summary>
             Extensions for Microsoft.Extensions.DependencyInjection.IServiceCollection.
             </summary>
         </member>
-        <!-- El comentario XML con formato incorrecto se ha omitido para el miembro "M:ADN.AppSettingsCore.ServiceCollectionExtensions.ConfigureWritable``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfigurationSection,System.String)" -->
+        <member name="M:ADN.AppSettingsCore.ServiceCollectionExtensions.ConfigureWritable``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfigurationSection,System.String)">
+            <summary>
+            Configure an overwritable configuration section of the JSON configuration provider.
+            </summary>
+            <typeparam name="T">The type of the element in the configuration section.</typeparam>
+            <param name="services">Contract for a collection of service descriptors.</param>
+            <param name="section">Configuration section of the JSON configuration provider.</param>
+            <param name="file">Configuration file. Default: appsettings.json.</param>
+            <example>
+            <code lang="csharp">
+            var builder = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+            var configuration = builder.Build();
+            
+            var services = new ServiceCollection();
+            <![CDATA[services.ConfigureWritable<Person>(configuration.GetSection("Person"));]]>
+            </code>
+            </example>
+        </member>
         <member name="T:ADN.AppSettingsCore.WritableOptions`1">
             <summary>
             Class of access to a modifiable section of a JSON file.
             </summary>
             <typeparam name="T">The type of the element in the configuration section.</typeparam>
         </member>
-        <!-- El comentario XML con formato incorrecto se ha omitido para el miembro "P:ADN.AppSettingsCore.WritableOptions`1.Value" -->
-        <!-- El comentario XML con formato incorrecto se ha omitido para el miembro "M:ADN.AppSettingsCore.WritableOptions`1.OnChange(System.Action{`0,System.String})" -->
-        <!-- El comentario XML con formato incorrecto se ha omitido para el miembro "M:ADN.AppSettingsCore.WritableOptions`1.Update(System.Action{`0})" -->
+        <member name="P:ADN.AppSettingsCore.WritableOptions`1.Value">
+            <summary>
+            Get the current value of the section.
+            </summary>
+            <example>
+            <code lang="csharp">
+            var sp = services.BuildServiceProvider();
+            <![CDATA[var writableOptions = sp.GetService<IWritableOptions<Person>>();]]>
+            var name = writableOptions.Value.Name;
+            </code>
+            </example>
+        </member>
+        <member name="M:ADN.AppSettingsCore.WritableOptions`1.Get(System.String)">
+            <summary>
+            Returns a configured TOptions instance with the given name.
+            </summary>
+        </member>
+        <member name="M:ADN.AppSettingsCore.WritableOptions`1.OnChange(System.Action{`0,System.String})">
+            <summary>
+            Registers a listener to be called whenever a named TOptions changes.
+            </summary>
+            <param name="listener">The action to be invoked when TOptions has changed.</param>
+            <returns>An IDisposable which should be disposed to stop listening for changes.</returns>
+            <example>
+            <code lang="csharp">
+            var sp = services.BuildServiceProvider();
+            <![CDATA[var writableOptions = sp.GetService<IWritableOptions<Person>>();]]>
+            writableOptions.OnChange((opt, str) =>
+                OnChangePersonName(opt.Name)
+            );
+            </code>
+            </example>
+        </member>
+        <member name="M:ADN.AppSettingsCore.WritableOptions`1.Update(System.Action{`0})">
+            <summary>
+            Update the current value of the section.
+            </summary>
+            <example>
+            <code lang="csharp">
+            var sp = services.BuildServiceProvider();
+            <![CDATA[var writableOptions = sp.GetService<IWritableOptions<Person>>();]]>
+            writableOptions.Update(opt => {
+                opt.Name = "Luke";
+            });
+            </code>
+            </example>
+        </member>
     </members>
 </doc>

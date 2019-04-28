@@ -39,11 +39,15 @@ namespace ADN.AppSettingsCore
         /// <example>
         /// <code lang="csharp">
         /// var sp = services.BuildServiceProvider();
-        /// var writableOptions = sp.GetService<IWritableOptions<Person>>();
+        /// <![CDATA[var writableOptions = sp.GetService<IWritableOptions<Person>>();]]>
         /// var name = writableOptions.Value.Name;
         /// </code>
         /// </example>
         public T Value => _options.CurrentValue;
+
+        /// <summary>
+        /// Returns a configured TOptions instance with the given name.
+        /// </summary>
         public T Get(string name) => _options.Get(name);
 
         /// <summary>
@@ -54,7 +58,7 @@ namespace ADN.AppSettingsCore
         /// <example>
         /// <code lang="csharp">
         /// var sp = services.BuildServiceProvider();
-        /// var writableOptions = sp.GetService<IWritableOptions<Person>>();
+        /// <![CDATA[var writableOptions = sp.GetService<IWritableOptions<Person>>();]]>
         /// writableOptions.OnChange((opt, str) =>
         ///     OnChangePersonName(opt.Name)
         /// );
@@ -71,7 +75,7 @@ namespace ADN.AppSettingsCore
         /// <example>
         /// <code lang="csharp">
         /// var sp = services.BuildServiceProvider();
-        /// var writableOptions = sp.GetService<IWritableOptions<Person>>();
+        /// <![CDATA[var writableOptions = sp.GetService<IWritableOptions<Person>>();]]>
         /// writableOptions.Update(opt => {
         ///     opt.Name = "Luke";
         /// });
