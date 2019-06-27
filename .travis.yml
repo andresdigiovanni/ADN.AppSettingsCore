@@ -1,6 +1,6 @@
 language: csharp
 solution: ADN.AppSettingsCore.sln
-mono: none
+mono: latest
 dotnet: 2.0.0
 
 addons:
