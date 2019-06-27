@@ -1,8 +1,17 @@
 language: csharp
 solution: ADN.AppSettingsCore.sln
+mono: none
 dotnet: 2.0.0
-script:
+
+addons:
+  sonarcloud:
+    organization: "andresdigiovanni-github"
+
+before_install:
+  - bash ./tools/travis-ci-install-sonar.sh
+
+install:
   - dotnet restore
-  - dotnet build ./src/ADN.AppSettingsCore/
-  - dotnet build ./tests/ADN.AppSettingsCore.Tests/
-  - dotnet test ./tests/ADN.AppSettingsCore.Tests/
+
+script:
+  - bash ./tools/travis-ci-build.sh

@@ -5,6 +5,8 @@ ADN.AppSettingsCore is a cross-platform open-source library which provides appli
 [![Build Status](https://travis-ci.org/andresdigiovanni/ADN.AppSettingsCore.svg?branch=master)](https://travis-ci.org/andresdigiovanni/ADN.AppSettingsCore)
 [![NuGet](https://img.shields.io/nuget/v/ADN.AppSettingsCore.svg)](https://www.nuget.org/packages/ADN.AppSettingsCore/)
 [![BCH compliance](https://bettercodehub.com/edge/badge/andresdigiovanni/ADN.AppSettingsCore?branch=master)](https://bettercodehub.com/)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=andresdigiovanni_ADN.AppSettingsCore&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=andresdigiovanni_ADN.AppSettingsCore)
+[![Quality](https://sonarcloud.io/api/project_badges/measure?project=andresdigiovanni_ADN.AppSettingsCore&metric=alert_status)](https://sonarcloud.io/dashboard?id=andresdigiovanni_ADN.AppSettingsCore)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Installation
