@@ -1,182 +1,175 @@
-<a name='assembly'></a>
 # ADN.AppSettingsCore
 
-## Contents
+# Content
 
-- [IWritableOptions\`1](#T-ADN-AppSettingsCore-IWritableOptions`1 'ADN.AppSettingsCore.IWritableOptions`1')
-  - [OnChange(listener)](#M-ADN-AppSettingsCore-IWritableOptions`1-OnChange-System-Action{`0,System-String}- 'ADN.AppSettingsCore.IWritableOptions`1.OnChange(System.Action{`0,System.String})')
-  - [Update()](#M-ADN-AppSettingsCore-IWritableOptions`1-Update-System-Action{`0}- 'ADN.AppSettingsCore.IWritableOptions`1.Update(System.Action{`0})')
-- [ServiceCollectionExtensions](#T-ADN-AppSettingsCore-ServiceCollectionExtensions 'ADN.AppSettingsCore.ServiceCollectionExtensions')
-  - [ConfigureWritable\`\`1(services,section,file)](#M-ADN-AppSettingsCore-ServiceCollectionExtensions-ConfigureWritable``1-Microsoft-Extensions-DependencyInjection-IServiceCollection,Microsoft-Extensions-Configuration-IConfigurationSection,System-String- 'ADN.AppSettingsCore.ServiceCollectionExtensions.ConfigureWritable``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfigurationSection,System.String)')
-- [WritableOptions\`1](#T-ADN-AppSettingsCore-WritableOptions`1 'ADN.AppSettingsCore.WritableOptions`1')
-  - [Value](#P-ADN-AppSettingsCore-WritableOptions`1-Value 'ADN.AppSettingsCore.WritableOptions`1.Value')
-  - [Get()](#M-ADN-AppSettingsCore-WritableOptions`1-Get-System-String- 'ADN.AppSettingsCore.WritableOptions`1.Get(System.String)')
-  - [OnChange(listener)](#M-ADN-AppSettingsCore-WritableOptions`1-OnChange-System-Action{`0,System-String}- 'ADN.AppSettingsCore.WritableOptions`1.OnChange(System.Action{`0,System.String})')
-  - [Update()](#M-ADN-AppSettingsCore-WritableOptions`1-Update-System-Action{`0}- 'ADN.AppSettingsCore.WritableOptions`1.Update(System.Action{`0})')
+- [IWritableOptions<T>](#T:ADN.AppSettingsCore.IWritableOptions`1)
 
-<a name='T-ADN-AppSettingsCore-IWritableOptions`1'></a>
-## IWritableOptions\`1 `type`
+  - [OnChange(System.Action{`0,System.String})](#IWritableOptions<T>.OnChange(System.Action{`0,System.String}))
 
-##### Namespace
+  - [Update(System.Action{`0})](#IWritableOptions<T>.Update(System.Action{`0}))
 
-ADN.AppSettingsCore
+- [ServiceCollectionExtensions](#T:ADN.AppSettingsCore.ServiceCollectionExtensions)
 
-##### Summary
+  - [ConfigureWritable`<T>(services, section, file)](#ServiceCollectionExtensions.ConfigureWritable`<T>(services,section,file))
+
+- [WritableOptions<T>](#T:ADN.AppSettingsCore.WritableOptions`1)
+
+  - [Get(System.String)](#WritableOptions<T>.Get(System.String))
+
+  - [OnChange(System.Action{`0,System.String})](#WritableOptions<T>.OnChange(System.Action{`0,System.String}))
+
+  - [Update(System.Action{`0})](#WritableOptions<T>.Update(System.Action{`0}))
+
+  - [.WritableOptions`1.Value](#P:ADN.AppSettingsCore.WritableOptions`1.Value)
+
+<a name='T:ADN.AppSettingsCore.IWritableOptions`1'></a>
+
+
+## IWritableOptions<T>
 
 Class of access to a modifiable section of a JSON file.
 
-##### Generic Types
+<a name='IWritableOptions<T>.OnChange(System.Action{`0,System.String})'></a>
 
-| Name | Description |
-| ---- | ----------- |
-| T | The type of the element in the configuration section. |
 
-<a name='M-ADN-AppSettingsCore-IWritableOptions`1-OnChange-System-Action{`0,System-String}-'></a>
-### OnChange(listener) `method`
-
-##### Summary
+### OnChange(System.Action{`0,System.String})
 
 Registers a listener to be called whenever a named TOptions changes.
 
-##### Returns
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| listener | *Unknown type*<br>The action to be invoked when TOptions has changed. |
+
+
+#### Returns
 
 An IDisposable which should be disposed to stop listening for changes.
 
-##### Parameters
+<a name='IWritableOptions<T>.Update(System.Action{`0})'></a>
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| listener | [System.Action{\`0,System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Action 'System.Action{`0,System.String}') | The action to be invoked when TOptions has changed. |
 
-<a name='M-ADN-AppSettingsCore-IWritableOptions`1-Update-System-Action{`0}-'></a>
-### Update() `method`
-
-##### Summary
+### Update(System.Action{`0})
 
 Update the current value of the section.
 
-##### Parameters
+<a name='T:ADN.AppSettingsCore.ServiceCollectionExtensions'></a>
 
-This method has no parameters.
 
-<a name='T-ADN-AppSettingsCore-ServiceCollectionExtensions'></a>
-## ServiceCollectionExtensions `type`
-
-##### Namespace
-
-ADN.AppSettingsCore
-
-##### Summary
+## ServiceCollectionExtensions
 
 Extensions for Microsoft.Extensions.DependencyInjection.IServiceCollection.
 
-<a name='M-ADN-AppSettingsCore-ServiceCollectionExtensions-ConfigureWritable``1-Microsoft-Extensions-DependencyInjection-IServiceCollection,Microsoft-Extensions-Configuration-IConfigurationSection,System-String-'></a>
-### ConfigureWritable\`\`1(services,section,file) `method`
+<a name='ServiceCollectionExtensions.ConfigureWritable`<T>(services,section,file)'></a>
 
-##### Summary
+
+### ConfigureWritable`<T>(services, section, file)
 
 Configure an overwritable configuration section of the JSON configuration provider.
 
-##### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| services | [Microsoft.Extensions.DependencyInjection.IServiceCollection](#T-Microsoft-Extensions-DependencyInjection-IServiceCollection 'Microsoft.Extensions.DependencyInjection.IServiceCollection') | Contract for a collection of service descriptors. |
-| section | [Microsoft.Extensions.Configuration.IConfigurationSection](#T-Microsoft-Extensions-Configuration-IConfigurationSection 'Microsoft.Extensions.Configuration.IConfigurationSection') | Configuration section of the JSON configuration provider. |
-| file | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Configuration file. Default: appsettings.json. |
-
-##### Generic Types
+#### Parameters
 
 | Name | Description |
 | ---- | ----------- |
-| T | The type of the element in the configuration section. |
+| services | *Microsoft.Extensions.DependencyInjection.IServiceCollection*<br>Contract for a collection of service descriptors. |
 
-##### Example
+#### Parameters
+
+| section | *Microsoft.Extensions.Configuration.IConfigurationSection*<br>Configuration section of the JSON configuration provider. |
+
+#### Parameters
+
+| file | *System.String*<br>Configuration file. Default: appsettings.json. |
+
+
+#### Example
 
 ```csharp
 var builder = new ConfigurationBuilder()
-    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
 var configuration = builder.Build();
+
 var services = new ServiceCollection();
-```
+services.ConfigureWritable<Person>(configuration.GetSection("Person"));```
 
-<a name='T-ADN-AppSettingsCore-WritableOptions`1'></a>
-## WritableOptions\`1 `type`
+<a name='T:ADN.AppSettingsCore.WritableOptions`1'></a>
 
-##### Namespace
 
-ADN.AppSettingsCore
-
-##### Summary
+## WritableOptions<T>
 
 Class of access to a modifiable section of a JSON file.
 
-##### Generic Types
+<a name='WritableOptions<T>.Get(System.String)'></a>
 
-| Name | Description |
-| ---- | ----------- |
-| T | The type of the element in the configuration section. |
 
-<a name='P-ADN-AppSettingsCore-WritableOptions`1-Value'></a>
-### Value `property`
-
-##### Summary
-
-Get the current value of the section.
-
-##### Example
-
-```csharp
-var sp = services.BuildServiceProvider();
-```
-
-<a name='M-ADN-AppSettingsCore-WritableOptions`1-Get-System-String-'></a>
-### Get() `method`
-
-##### Summary
+### Get(System.String)
 
 Returns a configured TOptions instance with the given name.
 
-##### Parameters
+<a name='WritableOptions<T>.OnChange(System.Action{`0,System.String})'></a>
 
-This method has no parameters.
 
-<a name='M-ADN-AppSettingsCore-WritableOptions`1-OnChange-System-Action{`0,System-String}-'></a>
-### OnChange(listener) `method`
-
-##### Summary
+### OnChange(System.Action{`0,System.String})
 
 Registers a listener to be called whenever a named TOptions changes.
 
-##### Returns
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| listener | *Unknown type*<br>The action to be invoked when TOptions has changed. |
+
+
+#### Returns
 
 An IDisposable which should be disposed to stop listening for changes.
 
-##### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| listener | [System.Action{\`0,System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Action 'System.Action{`0,System.String}') | The action to be invoked when TOptions has changed. |
-
-##### Example
+#### Example
 
 ```csharp
 var sp = services.BuildServiceProvider();
+var writableOptions = sp.GetService<IWritableOptions<Person>>();
+writableOptions.OnChange((opt, str) =>
+OnChangePersonName(opt.Name)
+);
 ```
 
-<a name='M-ADN-AppSettingsCore-WritableOptions`1-Update-System-Action{`0}-'></a>
-### Update() `method`
+<a name='WritableOptions<T>.Update(System.Action{`0})'></a>
 
-##### Summary
+
+### Update(System.Action{`0})
 
 Update the current value of the section.
 
-##### Parameters
 
-This method has no parameters.
-
-##### Example
+#### Example
 
 ```csharp
 var sp = services.BuildServiceProvider();
+var writableOptions = sp.GetService<IWritableOptions<Person>>();
+writableOptions.Update(opt => {
+opt.Name = "Luke";
+});
 ```
+
+<a name='P:ADN.AppSettingsCore.WritableOptions`1.Value'></a>
+
+
+### .WritableOptions`1.Value
+
+Get the current value of the section.
+
+
+#### Example
+
+```csharp
+var sp = services.BuildServiceProvider();
+var writableOptions = sp.GetService<IWritableOptions<Person>>();
+var name = writableOptions.Value.Name;
+```
+
