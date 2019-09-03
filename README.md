@@ -1,6 +1,6 @@
 # Application Settings Utils Library for .NET Core
 
-ADN.AppSettingsCore is a cross-platform open-source library which provides application settings utilities to .NET Core developers.
+ADN.AppSettingsCore is a cross-platform open-source library that allows to modify the application settings (appsettings.json) in an easy way.
 
 [![Build Status](https://travis-ci.org/andresdigiovanni/ADN.AppSettingsCore.svg?branch=master)](https://travis-ci.org/andresdigiovanni/ADN.AppSettingsCore)
 [![NuGet](https://img.shields.io/nuget/v/ADN.AppSettingsCore.svg)](https://www.nuget.org/packages/ADN.AppSettingsCore/)
@@ -8,6 +8,33 @@ ADN.AppSettingsCore is a cross-platform open-source library which provides appli
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=andresdigiovanni_ADN.AppSettingsCore&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=andresdigiovanni_ADN.AppSettingsCore)
 [![Quality](https://sonarcloud.io/api/project_badges/measure?project=andresdigiovanni_ADN.AppSettingsCore&metric=alert_status)](https://sonarcloud.io/dashboard?id=andresdigiovanni_ADN.AppSettingsCore)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Basic usage
+
+Update the current value of the section.
+
+```csharp
+var sp = services.BuildServiceProvider();
+var writableOptions = sp.GetService<IWritableOptions<Person>>();
+
+writableOptions.Update(opt => {
+    opt.Name = "Anakin";
+});
+
+var name = writableOptions.Value.Name; // Anakin
+
+writableOptions.OnChange((opt, str) =>
+    OnChangePersonName(opt.Name)
+);
+
+writableOptions.Update(opt => {
+    opt.Name = "Darth Vader";
+});
+
+// OnChangePersonName is call
+
+name = writableOptions.Value.Name; // Darth Vader
+```
 
 ## Installation
 
